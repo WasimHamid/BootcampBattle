@@ -4,6 +4,8 @@ const Bootcampers = props => {
   return (
     <div>
       <div>
+        <div className="leftTopBox" />
+        <div className="rightTopBox" />
         {props.name}
         {props.id}
       </div>

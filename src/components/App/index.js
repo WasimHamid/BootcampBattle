@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import "../App";
-// import Header from "../Header";
+
+import Header from "../Header";
 import Bootcampers from "../Bootcampers";
+import Timer from "../Timer";
 import bootcampers from "../../data/bootcampers";
 import statements from "../../data/statements";
-
-// const bootcamp = findUserById(4);
+import Topic from "../Topic";
 
 class App extends Component {
   constructor(props) {
@@ -31,18 +32,23 @@ class App extends Component {
 
   render() {
     return (
-      <>
-        <Bootcampers
-          handleClick={() => this.handleClick("selectedBootcamper1")}
-          name={this.state.selectedBootcamper1}
-          id={bootcampers.id}
-        />
-        <Bootcampers
-          handleClick={() => this.handleClick("selectedBootcamper2")}
-          name={this.state.selectedBootcamper2}
-          id={bootcampers.id}
-        />
-      </>
+      <div className="outside">
+        <Header name="Bootcamper Bullshit Battle" />
+        <>
+          <Bootcampers
+            handleClick={() => this.handleClick("selectedBootcamper1")}
+            name={this.state.selectedBootcamper1}
+            id={bootcampers.id}
+          />
+          <Bootcampers
+            handleClick={() => this.handleClick("selectedBootcamper2")}
+            name={this.state.selectedBootcamper2}
+            id={bootcampers.id}
+          />
+        </>
+        <Timer />
+        <Topic />
+      </div>
     );
   }
 }
