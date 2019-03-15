@@ -1,10 +1,15 @@
 import React from "react";
 
-const Bootcampers = () => {
+const Bootcampers = props => {
   return (
-    <div className="">
-      <div className="leftTopBox" />
-      <div className="rightTopBox" />
+    <div>
+      <div>
+        <div className="leftTopBox" />
+        <div className="rightTopBox" />
+        {props.name}
+        {props.id}
+      </div>
+      <button onClick={props.handleClick}>Click me</button>
     </div>
   );
 };
