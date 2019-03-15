@@ -3,6 +3,7 @@ import "../App";
 
 import Header from "../Header";
 import Bootcampers from "../Bootcampers";
+import Bootcampers2 from "../Bootcampers2";
 import Timer from "../Timer";
 import bootcampers from "../../data/bootcampers";
 import statements from "../../data/statements";
@@ -29,6 +30,13 @@ class App extends Component {
     console.log(rand.name);
     this.setState(() => ({ [bootcamper]: rand.name }));
   };
+  randomStatementClick = () => {
+    var rand = Math.floor(Math.random() * statements.length);
+    console.log(statements[rand].statement);
+    this.setState(() => ({
+      selectedStatement: statements[rand].statement
+    }));
+  };
 
   render() {
     return (
@@ -40,14 +48,17 @@ class App extends Component {
             name={this.state.selectedBootcamper1}
             id={bootcampers.id}
           />
-          <Bootcampers
+          <Bootcampers2
             handleClick={() => this.handleClick("selectedBootcamper2")}
             name={this.state.selectedBootcamper2}
             id={bootcampers.id}
           />
         </>
         <Timer />
-        <Topic />
+        <Topic
+          randomStatement={() => this.randomStatementClick("selectedStatement")}
+          statement={this.state.selectedStatement}
+        />
       </div>
     );
   }
